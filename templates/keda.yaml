@@ -4,7 +4,7 @@ metadata:
   name: keda
   namespace: flux-system
   labels:
-    gwcp.guidewire.com/version: {{ .Values.keda.version | quote }}
+    gwcp.guidewire.com/version: {{ .Values.version | quote }}
     gwcp.guidewire.com/dept: {{ .Values.departmentCode | quote }}
     gwcp.guidewire.com/maintained-by: {{ .Values.podName | quote }}
     gwcp.guidewire.com/created-by: {{ .Values.podName | quote }}
@@ -20,7 +20,7 @@ metadata:
   name: keda
   namespace: flux-system
   labels:
-    gwcp.guidewire.com/version: {{ .Values.keda.version | quote }}
+    gwcp.guidewire.com/version: {{ .Values.version | quote }}
     gwcp.guidewire.com/dept: {{ .Values.departmentCode | quote }}
     gwcp.guidewire.com/maintained-by: {{ .Values.podName | quote }}
     gwcp.guidewire.com/created-by: {{ .Values.podName | quote }}

@@ -2,16 +2,16 @@ apiVersion: v1
 entries:
   keda-component:
   - apiVersion: v2
-    created: "2024-01-25T15:34:50.214081-08:00"
+    created: "2024-01-25T15:46:56.803357-08:00"
     description: Keda Component
-    digest: 64ad5c99ef8cc7872aedea3417800df3030d61cf2ce487c525ef58099cb4ebad
+    digest: 47e1cb64db9ca8d9d76fbc1bf74773d53ab22d0ad99d2463544e23d3cd565f4d
     name: keda-component
     type: application
     urls:
     - https://sundarok.github.io/keda-component/keda-component-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
-    created: "2024-01-25T15:34:50.211639-08:00"
+    created: "2024-01-25T15:46:56.802408-08:00"
     description: Keda Component
     digest: d0b076cb235ac38706bab649f064d985452045926f8a616de2c14b43f81e375d
     name: keda-component
@@ -19,4 +19,4 @@ entries:
     urls:
     - https://sundarok.github.io/keda-component/keda-component-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-25T15:34:50.208587-08:00"
+generated: "2024-01-25T15:46:56.79812-08:00"
