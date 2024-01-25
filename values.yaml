@@ -2,3 +2,29 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+appName: keda
+version: 2.9.2
+podName: pod-danville
+departmentCode: 275
+
+operator:
+  replicaCount: 1
+
+metricsServer:
+  replicaCount: 1
+
+resources:
+  operator:
+    limits:
+      cpu: 1
+      memory: 1000Mi
+    requests:
+      cpu: 50m
+      memory: 100Mi
+  metricServer:
+    limits:
+      cpu: 1
+      memory: 1000Mi
+    requests:
+      cpu: 50m
+      memory: 100Mi

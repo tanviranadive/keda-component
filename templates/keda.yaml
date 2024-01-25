@@ -4,11 +4,11 @@ metadata:
   name: keda
   namespace: flux-system
   labels:
-    gwcp.guidewire.com/version: "2.9.2"
-    gwcp.guidewire.com/dept: "275"
-    gwcp.guidewire.com/maintained-by: "pod-abcd"
-    gwcp.guidewire.com/created-by: "pod-abcd"
-    gwcp.guidewire.com/app-name: "keda"
+    gwcp.guidewire.com/version: {{ .Values.keda.version | quote }}
+    gwcp.guidewire.com/dept: {{ .Values.departmentCode | quote }}
+    gwcp.guidewire.com/maintained-by: {{ .Values.podName | quote }}
+    gwcp.guidewire.com/created-by: {{ .Values.podName | quote }}
+    gwcp.guidewire.com/app-name: {{ .Values.appName | quote }}
     gwcp.guidewire.com/tenant-name: quadrant-shared
 spec:
   interval: 5m
@@ -20,11 +20,11 @@ metadata:
   name: keda
   namespace: flux-system
   labels:
-    gwcp.guidewire.com/version: "2.9.2"
-    gwcp.guidewire.com/dept: "275"
-    gwcp.guidewire.com/maintained-by: "pod-abcd"
-    gwcp.guidewire.com/created-by: "pod-abcd"
-    gwcp.guidewire.com/app-name: "keda"
+    gwcp.guidewire.com/version: {{ .Values.keda.version | quote }}
+    gwcp.guidewire.com/dept: {{ .Values.departmentCode | quote }}
+    gwcp.guidewire.com/maintained-by: {{ .Values.podName | quote }}
+    gwcp.guidewire.com/created-by: {{ .Values.podName | quote }}
+    gwcp.guidewire.com/app-name: {{ .Values.appName | quote }}
     gwcp.guidewire.com/tenant-name: quadrant-shared
   annotations:
     meta.helm.sh/release-name: keda-release
@@ -35,7 +35,7 @@ spec:
   chart:
     spec:
       chart: keda
-      version: 2.9.2
+      version: {{ .Values.keda.version | quote }}
       sourceRef:
         kind: HelmRepository
         name: keda
@@ -43,17 +43,17 @@ spec:
       interval: 10m0s
   values:
     additionalLabels:
-      gwcp.guidewire.com/version: "2.9.2"
-      gwcp.guidewire.com/dept: "275"
-      gwcp.guidewire.com/maintained-by: "pod-abcd"
-      gwcp.guidewire.com/created-by: "pod-abcd"
-      gwcp.guidewire.com/app-name: "keda"
+      gwcp.guidewire.com/version: {{ .Values.version | quote }}
+      gwcp.guidewire.com/dept: {{ .Values.departmentCode | quote }}
+      gwcp.guidewire.com/maintained-by: {{ .Values.podName | quote }}
+      gwcp.guidewire.com/created-by: {{ .Values.podName | quote }}
+      gwcp.guidewire.com/app-name: {{ .Values.appName | quote }}
       gwcp.guidewire.com/tenant-name: quadrant-shared
     operator:
       name: keda-operator
-      replicaCount: 3
+      replicaCount: {{ .Values.operator.replicaCount | quote }}
     metricsServer:
-      replicaCount: 3
+      replicaCount: {{ .Values.metricsServer.replicaCount }}
     podDisruptionBudget:
       operator:
         minAvailable: 1
@@ -66,16 +66,6 @@ spec:
         sidecar.istio.io/inject: "false"
     resources:
       operator:
-        limits:
-          cpu: 100m
-          memory: 1024Mi
-        requests:
-          cpu: 50m
-          memory: 128Mi
+        {{- toYaml .Values.resources.operator | nindent 9 }}
       metricServer:
-        limits:
-          cpu: 100m
-          memory: 1024Mi
-        requests:
-          cpu: 50m
-          memory: 128Mi
+        {{- toYaml .Values.resources.metricServer | nindent 9 }}
