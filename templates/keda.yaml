@@ -35,7 +35,7 @@ spec:
   chart:
     spec:
       chart: keda
-      version: {{ .Values.keda.version | quote }}
+      version: {{ .Values.version | quote }}
       sourceRef:
         kind: HelmRepository
         name: keda
