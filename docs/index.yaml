@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v2
 entries:
   keda_component:
   - apiVersion: v2
