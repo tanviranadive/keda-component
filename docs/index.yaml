@@ -8,7 +8,7 @@ entries:
     name: keda-component
     type: application
     urls:
-    - https://sundarok.github.io/keda-component/keda-component-0.1.2.tgz
+    - https://tanviranadive.github.io/keda-component/keda-component-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
     created: "2024-01-29T17:20:02.562192-08:00"
@@ -17,7 +17,7 @@ entries:
     name: keda-component
     type: application
     urls:
-    - https://sundarok.github.io/keda-component/keda-component-0.1.1.tgz
+    - https://tanviranadive.github.io/keda-component/keda-component-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     created: "2024-01-29T17:20:02.556856-08:00"
@@ -26,6 +26,6 @@ entries:
     name: keda-component
     type: application
     urls:
-    - https://sundarok.github.io/keda-component/keda-component-0.1.0.tgz
+    - https://tanviranadive.github.io/keda-component/keda-component-0.1.0.tgz
     version: 0.1.0
 generated: "2024-01-29T17:20:02.553089-08:00"
