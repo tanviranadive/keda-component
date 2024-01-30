@@ -1,30 +1,39 @@
 # Default values for ..
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+keda:
+  appName: keda
+  version: 2.9.2
+  podName: pod-danville
+  departmentCode: 275
 
-appName: keda
-version: 2.9.2
-podName: pod-danville
-departmentCode: 275
-
-operator:
-  replicaCount: 1
-
-metricsServer:
-  replicaCount: 1
-
-resources:
   operator:
-    limits:
-      cpu: 1
-      memory: 1000Mi
-    requests:
-      cpu: 50m
-      memory: 100Mi
-  metricServer:
-    limits:
-      cpu: 1
-      memory: 1000Mi
-    requests:
-      cpu: 50m
-      memory: 100Mi
+    replicaCount: 1
+
+  metricsServer:
+    replicaCount: 1
+
+  resources:
+    operator:
+      limits:
+        cpu: 1
+        memory: 1000Mi
+      requests:
+        cpu: 50m
+        memory: 100Mi
+    metricServer:
+      limits:
+        cpu: 1
+        memory: 1000Mi
+      requests:
+        cpu: 50m
+        memory: 100Mi
+
+namespace:
+  version: 0.1.0
+  name: keda-system
+  isCoreInfra: true
+  departmentCode: "275"
+  maintainedBy: pod-danville
+  createdBy: pod-danville
+  tenantName: quadrant-shared

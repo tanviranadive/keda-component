@@ -1,0 +1,26 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: atmos-namespace-github
+  namespace: default
+spec:
+  interval: 10m0s
+  url: https://sundarok.github.io/atmos-namespace
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: atmos-namespace-helmrelease
+  namespace: default
+spec:
+  chart:
+    spec:
+      chart: atmos-namespace
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: atmos-namespace-github
+      version: {{ .Values.namespace.version | quote }}
+  interval: 10m0s
+  values: {{ toYaml .Values.namespace | nindent 4 }}
